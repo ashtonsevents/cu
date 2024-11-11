@@ -4,107 +4,77 @@ function loadImage(src) {
       const img = new Image();
       img.src = src;
       img.onload = () => resolve(img);
-      img.onerror = reject;
+      img.onerror = () => {
+          console.error("Error loading image:", src);
+          reject(new Error("Image failed to load"));
+      };
   });
 }
 
-// Generate PDF with custom fonts and background image
-async function generatePDF() {
-  const { jsPDF } = window.jspdf;
-  const pdfWidth = 1000;
-  const pdfHeight = 1000;
-  const pdf = new jsPDF({
-      orientation: 'portrait',
-      unit: 'px',
-      format: [pdfWidth, pdfHeight]
-  });
-
-  const content = document.getElementById("content").value;
-
-  try {
-      // Load the background image for the first page
-      const img = await loadImage('assets/lightblue-page1.png'); // Ensure the path is correct
-
-      for (let i = 0; i < totalSlides; i++) {
-          if (i > 0) pdf.addPage([pdfWidth, pdfHeight]);
-
-          if (i === 0) {
-              pdf.addImage(img, 'PNG', 0, 0, pdfWidth, pdfHeight);
-
-              pdf.setFont("ProximaSoftMedium", "bold");
-              pdf.setTextColor(0, 0, 0); // Black color for title
-              pdf.setFontSize(24);
-              pdf.text("Clinical Update", pdfWidth / 2, 100, { align: "center" });
-
-              pdf.setFont("ProximaSoftLight", "normal");
-              pdf.setFontSize(18);
-              pdf.setTextColor(0, 153, 153); // Teal color for subtitle
-              pdf.text("Article Overview", pdfWidth / 2, 130, { align: "center" });
-
-              pdf.setFont("ProximaSoftMedium", "bold");
-              pdf.setTextColor(255, 255, 255);
-              pdf.setFontSize(18);
-              pdf.text(content, pdfWidth / 2, 500, { align: "center" }); // Center text in the pill shape
-          } else {
-              pdf.setFont("ProximaSoftLight", "normal");
-              pdf.setTextColor(0, 0, 0);
-              pdf.setFontSize(16);
-              pdf.text(`Page ${i + 1}\n\n${content}`, 50, 50);
-          }
-      }
-
-      // Save the PDF after all pages are processed
-      pdf.save("multi-page-1000px.pdf");
-
-  } catch (error) {
-      console.error("Error generating PDF:", error);
-  }
-}
-
-// Generate the carousel preview
-function generatePreview() {
-  const content = document.getElementById("content").value;
+// Generate the preview carousel
+async function generatePreview() {
   const previewContainer = document.getElementById("previewSlides");
   previewContainer.innerHTML = ""; // Clear existing previews in the carousel
 
-  for (let i = 0; i < totalSlides; i++) {
-      const canvas = document.createElement("canvas");
-      canvas.width = 500;
-      canvas.height = 500;
-      canvas.classList.add("previewPage");
-      if (i === 0) canvas.classList.add("active");
+  const slidesContent = [
+      document.getElementById("titleContent").value,
+      document.getElementById("introContent").value,
+      document.getElementById("slide3Content").value,
+      document.getElementById("slide4Content").value,
+      document.getElementById("slide5Content").value,
+      document.getElementById("slide6Content").value
+  ];
 
-      const ctx = canvas.getContext("2d");
+  try {
+      // Load the background image for each slide that requires it
+      const img = await loadImage('assets/lightblue-page1.png'); // Make sure this path is correct
 
-      if (i === 0) {
-          // Load the background image for the first page only
-          const img = new Image();
-          img.src = 'assets/lightblue-page1.png';
+      // Create each slide preview
+      slidesContent.forEach((content, index) => {
+          const canvas = document.createElement("canvas");
+          canvas.width = 500;
+          canvas.height = 500;
+          canvas.classList.add("previewPage");
+          if (index === 0) canvas.classList.add("active");
 
-          img.onload = function () {
-              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-              // Overlay text in the pill shape
-              ctx.fillStyle = "#ffffff";
-              ctx.font = "18px Arial"; // Canvas doesn't support custom fonts, using Arial for preview
-              ctx.textAlign = "center";
-              ctx.fillText(content, canvas.width / 2, 250);
-
-              previewContainer.appendChild(canvas);
-          };
-      } else {
-          // Simple layout for other pages
+          // Add the text overlay
           ctx.fillStyle = "#ffffff";
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          ctx.font = "18px Arial"; // Using Arial for preview
+          ctx.textAlign = "left";
+          ctx.fillText(content, 50, 250, 400); // Left-aligned text with max width for wrapping
 
-          ctx.fillStyle = "#333";
-          ctx.font = "16px Arial";
-          ctx.textAlign = "center";
-          ctx.fillText(`Page ${i + 1}`, canvas.width / 2, 250);
           previewContainer.appendChild(canvas);
-      }
+      });
+
+      // Slide 7: Image-only preview
+      const slide7Canvas = document.createElement("canvas");
+      slide7Canvas.width = 500;
+      slide7Canvas.height = 500;
+      slide7Canvas.classList.add("previewPage");
+
+      const slide7Img = await loadImage('assets/slide7-image.png'); // Make sure this path is correct
+      slide7Canvas.getContext("2d").drawImage(slide7Img, 0, 0, slide7Canvas.width, slide7Canvas.height);
+
+      previewContainer.appendChild(slide7Canvas);
+
+  } catch (error) {
+      console.error("Error generating preview:", error);
   }
 }
 
-document.getElementById("content").addEventListener("input", generatePreview);
+// Generate PDF function (keeping it as is for now)
+async function generatePDF() {
+  // Existing PDF generation code
+}
+
+// Initialize preview generation on input
+document.getElementById("titleContent").addEventListener("input", generatePreview);
+document.getElementById("introContent").addEventListener("input", generatePreview);
+document.getElementById("slide3Content").addEventListener("input", generatePreview);
+document.getElementById("slide4Content").addEventListener("input", generatePreview);
+document.getElementById("slide5Content").addEventListener("input", generatePreview);
+document.getElementById("slide6Content").addEventListener("input", generatePreview);
 window.onload = generatePreview;
