@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Generator with Carousel Preview</title>
+    <title>PDF Generator with Slide Previews</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Load ProximaSoft font files -->
     <script src="path/to/ProximaSoftLight.js"></script>
     <script src="path/to/ProximaSoftMedium.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
@@ -49,15 +48,11 @@
 
         <button onclick="generatePDF()">Generate PDF</button>
 
-        <!-- Carousel Preview Section -->
+        <!-- Slide Previews Section (display all slides in a row) -->
         <div id="previewContainer">
             <h2>Preview:</h2>
-            <div id="carousel">
-                <button id="prevButton" onclick="prevSlide()">❮</button>
-                <div id="previewSlides" class="carousel-slide">
-                    <!-- Preview pages will be added here dynamically by JavaScript -->
-                </div>
-                <button id="nextButton" onclick="nextSlide()">❯</button>
+            <div id="previewSlides" class="preview-row">
+                <!-- Preview slides will be added here dynamically by JavaScript -->
             </div>
         </div>
     </div>

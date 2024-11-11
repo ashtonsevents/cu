@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-  max-width: 1200px; /* Wider container */
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -20,7 +20,7 @@ body {
 }
 
 .input-boxes div {
-  flex: 1 1 30%; /* Make each box take up about 30% of the width */
+  flex: 1 1 30%;
   min-width: 300px;
 }
 
@@ -41,58 +41,21 @@ button {
 
 #previewContainer {
   margin-top: 20px;
-  text-align: center;
 }
 
-#carousel {
+#previewSlides {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
-}
-
-.carousel-slide {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-shrink: 0;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px;
+  border-top: 2px solid #ddd;
 }
 
 .previewPage {
-  width: 100%;
-  height: 100%;
-  flex: 0 0 100%;
-  display: none; /* Hide initially; only one is shown at a time */
-}
-
-.previewPage.active {
-  display: block; /* Show only the active slide */
-}
-
-#prevButton, #nextButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-#prevButton {
-  left: -35px;
-}
-
-#nextButton {
-  right: -35px;
-}
-
-#prevButton:hover, #nextButton:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+  width: 500px;
+  height: 500px;
+  flex-shrink: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f4f4f4;
 }
