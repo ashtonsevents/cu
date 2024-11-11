@@ -1,15 +1,3 @@
-// Ensure the custom fonts are loaded
-function loadCustomFonts() {
-  const { jsPDF } = window.jspdf;
-  jsPDF.API.events.push(['addFonts', function () {
-      this.addFileToVFS('ProximaSoftLight.ttf', 'YOUR_BASE64_STRING_FOR_LIGHT_FONT');
-      this.addFont('ProximaSoftLight.ttf', 'ProximaSoftLight', 'normal');
-
-      this.addFileToVFS('ProximaSoftMedium.ttf', 'YOUR_BASE64_STRING_FOR_MEDIUM_FONT');
-      this.addFont('ProximaSoftMedium.ttf', 'ProximaSoftMedium', 'bold');
-  }]);
-}
-
 // Function to load the background image as a Promise
 function loadImage(src) {
   return new Promise((resolve, reject) => {
@@ -22,8 +10,6 @@ function loadImage(src) {
 
 // Generate PDF with custom fonts and background image
 async function generatePDF() {
-  loadCustomFonts(); // Load fonts first
-
   const { jsPDF } = window.jspdf;
   const pdfWidth = 1000;
   const pdfHeight = 1000;
@@ -37,7 +23,7 @@ async function generatePDF() {
 
   try {
       // Load the background image for the first page
-      const img = await loadImage('assets/lightblue-page1.png');
+      const img = await loadImage('assets/lightblue-page1.png'); // Ensure the path is correct
 
       for (let i = 0; i < totalSlides; i++) {
           if (i > 0) pdf.addPage([pdfWidth, pdfHeight]);
