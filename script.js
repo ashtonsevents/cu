@@ -1,107 +1,124 @@
-let currentSlide = 0; // Track the current slide index
-const totalSlides = 7; // Number of pages to preview
+// Ensure the custom fonts are loaded
+function loadCustomFonts() {
+  const { jsPDF } = window.jspdf;
+  jsPDF.API.events.push(['addFonts', function () {
+      this.addFileToVFS('ProximaSoftLight.ttf', 'YOUR_BASE64_STRING_FOR_LIGHT_FONT');
+      this.addFont('ProximaSoftLight.ttf', 'ProximaSoftLight', 'normal');
 
+      this.addFileToVFS('ProximaSoftMedium.ttf', 'YOUR_BASE64_STRING_FOR_MEDIUM_FONT');
+      this.addFont('ProximaSoftMedium.ttf', 'ProximaSoftMedium', 'bold');
+  }]);
+}
+
+// Function to load the background image as a Promise
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => resolve(img);
+      img.onerror = reject;
+  });
+}
+
+// Generate PDF with custom fonts and background image
+async function generatePDF() {
+  loadCustomFonts(); // Load fonts first
+
+  const { jsPDF } = window.jspdf;
+  const pdfWidth = 1000;
+  const pdfHeight = 1000;
+  const pdf = new jsPDF({
+      orientation: 'portrait',
+      unit: 'px',
+      format: [pdfWidth, pdfHeight]
+  });
+
+  const content = document.getElementById("content").value;
+
+  try {
+      // Load the background image for the first page
+      const img = await loadImage('assets/lightblue-page1.png');
+
+      for (let i = 0; i < totalSlides; i++) {
+          if (i > 0) pdf.addPage([pdfWidth, pdfHeight]);
+
+          if (i === 0) {
+              pdf.addImage(img, 'PNG', 0, 0, pdfWidth, pdfHeight);
+
+              pdf.setFont("ProximaSoftMedium", "bold");
+              pdf.setTextColor(0, 0, 0); // Black color for title
+              pdf.setFontSize(24);
+              pdf.text("Clinical Update", pdfWidth / 2, 100, { align: "center" });
+
+              pdf.setFont("ProximaSoftLight", "normal");
+              pdf.setFontSize(18);
+              pdf.setTextColor(0, 153, 153); // Teal color for subtitle
+              pdf.text("Article Overview", pdfWidth / 2, 130, { align: "center" });
+
+              pdf.setFont("ProximaSoftMedium", "bold");
+              pdf.setTextColor(255, 255, 255);
+              pdf.setFontSize(18);
+              pdf.text(content, pdfWidth / 2, 500, { align: "center" }); // Center text in the pill shape
+          } else {
+              pdf.setFont("ProximaSoftLight", "normal");
+              pdf.setTextColor(0, 0, 0);
+              pdf.setFontSize(16);
+              pdf.text(`Page ${i + 1}\n\n${content}`, 50, 50);
+          }
+      }
+
+      // Save the PDF after all pages are processed
+      pdf.save("multi-page-1000px.pdf");
+
+  } catch (error) {
+      console.error("Error generating PDF:", error);
+  }
+}
+
+// Generate the carousel preview
 function generatePreview() {
-    const content = document.getElementById("content").value;
-    const previewContainer = document.getElementById("previewSlides");
-    previewContainer.innerHTML = ""; // Clear existing previews in the carousel
+  const content = document.getElementById("content").value;
+  const previewContainer = document.getElementById("previewSlides");
+  previewContainer.innerHTML = ""; // Clear existing previews in the carousel
 
-    for (let i = 0; i < totalSlides; i++) {
-        const canvas = document.createElement("canvas");
-        canvas.width = 500;
-        canvas.height = 500;
-        canvas.classList.add("previewPage");
-        if (i === 0) canvas.classList.add("active"); // Show the first page by default
+  for (let i = 0; i < totalSlides; i++) {
+      const canvas = document.createElement("canvas");
+      canvas.width = 500;
+      canvas.height = 500;
+      canvas.classList.add("previewPage");
+      if (i === 0) canvas.classList.add("active");
 
-        const ctx = canvas.getContext("2d");
+      const ctx = canvas.getContext("2d");
 
-        if (i === 0) {
-            // Load background image for the first page only
-            const img = new Image();
-            img.src = 'assets/lightblue-page1.png'; // Replace with the correct path to the background image
+      if (i === 0) {
+          // Load the background image for the first page only
+          const img = new Image();
+          img.src = 'assets/lightblue-page1.png';
 
-            img.onload = function() {
-                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          img.onload = function () {
+              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-                // Overlay text within the pill shape
-                ctx.fillStyle = "#ffffff";
-                ctx.font = "18px Arial";
-                ctx.textAlign = "center";
-                ctx.fillText(content, canvas.width / 2, 250); // Position text within the pill shape
+              // Overlay text in the pill shape
+              ctx.fillStyle = "#ffffff";
+              ctx.font = "18px Arial"; // Canvas doesn't support custom fonts, using Arial for preview
+              ctx.textAlign = "center";
+              ctx.fillText(content, canvas.width / 2, 250);
 
-                // Append the canvas to the carousel preview container
-                previewContainer.appendChild(canvas);
-            };
-        } else {
-            // Simple layout for other pages
-            ctx.fillStyle = "#ffffff";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+              previewContainer.appendChild(canvas);
+          };
+      } else {
+          // Simple layout for other pages
+          ctx.fillStyle = "#ffffff";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = "#333";
-            ctx.font = "16px Arial";
-            ctx.textAlign = "center";
-            ctx.fillText(`Page ${i + 1}`, canvas.width / 2, 250);
-            previewContainer.appendChild(canvas);
-        }
-    }
+          ctx.fillStyle = "#333";
+          ctx.font = "16px Arial";
+          ctx.textAlign = "center";
+          ctx.fillText(`Page ${i + 1}`, canvas.width / 2, 250);
+          previewContainer.appendChild(canvas);
+      }
+  }
 }
 
-function updateSlides() {
-    const slides = document.querySelectorAll(".previewPage");
-    slides.forEach((slide, index) => {
-        slide.classList.toggle("active", index === currentSlide);
-    });
-}
-
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateSlides();
-}
-
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateSlides();
-}
-
-function generatePDF() {
-    const { jsPDF } = window.jspdf;
-
-    const pdfWidth = 1000;
-    const pdfHeight = 1000;
-    const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'px',
-        format: [pdfWidth, pdfHeight]
-    });
-
-    const content = document.getElementById("content").value;
-
-    for (let i = 0; i < totalSlides; i++) {
-        if (i > 0) pdf.addPage([pdfWidth, pdfHeight]);
-
-        if (i === 0) {
-            const img = new Image();
-            img.src = 'assets/lightblue-page1.png';
-
-            img.onload = function() {
-                pdf.addImage(img, 'PNG', 0, 0, pdfWidth, pdfHeight);
-                pdf.setTextColor(255, 255, 255);
-                pdf.setFontSize(18);
-                pdf.text(content, pdfWidth / 2, 500, { align: "center" }); // Center text in the pill shape
-
-                if (i === totalSlides - 1) {
-                    pdf.save("multi-page-1000px.pdf");
-                }
-            };
-        } else {
-            pdf.setTextColor(0, 0, 0);
-            pdf.setFontSize(16);
-            pdf.text(`Page ${i + 1}\n\n${content}`, 50, 50);
-        }
-    }
-}
-
-// Add event listeners to generate previews on changes
 document.getElementById("content").addEventListener("input", generatePreview);
-document.getElementById("color").addEventListener("change", generatePreview);
 window.onload = generatePreview;
