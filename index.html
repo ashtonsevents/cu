@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Generator</title>
+    <title>PDF Generator with Carousel Preview</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>PDF Generator v0.0.1</h1>
+        <h1>PDF Generator</h1>
         <label for="content">Enter Text:</label>
         <textarea id="content" placeholder="Paste or type your content here..."></textarea>
         
@@ -21,9 +21,22 @@
         </select>
         
         <button onclick="generatePDF()">Generate PDF</button>
+
+        <!-- Carousel Preview Section -->
+        <div id="previewContainer">
+            <h2>Preview:</h2>
+            <div id="carousel">
+                <button id="prevButton" onclick="prevSlide()">❮</button>
+                <div id="previewSlides" class="carousel-slide">
+                    <!-- Preview pages will be added here dynamically by JavaScript -->
+                </div>
+                <button id="nextButton" onclick="nextSlide()">❯</button>
+            </div>
+        </div>
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
