@@ -13,33 +13,35 @@
     <div class="container">
         <h1>PDF Generator</h1>
 
+        <!-- Theme selection dropdown -->
+        <label for="theme">Choose Theme:</label>
+        <select id="theme" onchange="generatePreview()">
+            <option value="lightblue">Light Blue</option>
+            <!-- You can add more themes here -->
+        </select>
+
         <!-- Wider layout for text input boxes -->
         <div class="input-boxes">
             <div>
                 <label for="titleContent">Title Page:</label>
                 <textarea id="titleContent" placeholder="Title page content..."></textarea>
             </div>
-
             <div>
                 <label for="introContent">Introduction:</label>
                 <textarea id="introContent" placeholder="Introduction content..."></textarea>
             </div>
-
             <div>
                 <label for="slide3Content">Slide 3:</label>
                 <textarea id="slide3Content" placeholder="Content for slide 3..."></textarea>
             </div>
-
             <div>
                 <label for="slide4Content">Slide 4:</label>
                 <textarea id="slide4Content" placeholder="Content for slide 4..."></textarea>
             </div>
-
             <div>
                 <label for="slide5Content">Slide 5:</label>
                 <textarea id="slide5Content" placeholder="Content for slide 5..."></textarea>
             </div>
-
             <div>
                 <label for="slide6Content">Slide 6:</label>
                 <textarea id="slide6Content" placeholder="Content for slide 6..."></textarea>
