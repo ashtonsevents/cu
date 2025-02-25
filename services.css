@@ -1,0 +1,99 @@
+/* Services Section */
+.services-section {
+    padding: 50px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+/* Section Heading */
+.services-section h2 {
+    font-family: "poppins", sans-serif;
+    font-size: 1.8rem;
+    color: #07485b;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+/* Centered Grid with Responsive Columns */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns default */
+    gap: 20px;
+    max-width: 900px; /* Center the grid */
+    margin: 0 auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {  /* Tablet View */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+}
+
+@media (max-width: 600px) {  /* Mobile View */
+    .services-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 column */
+    }
+}
+
+/* Service Items */
+.service-item {
+    display: flex;
+    align-items: flex-start; /* Keeps tick aligned */
+    justify-content: flex-start;
+    font-family: "poppins", sans-serif;
+    font-size: 1rem;
+    color: #07485b;
+    transition: transform 0.3s ease;
+    position: relative;
+    padding: 10px;
+    min-height: 60px; /* Ensures space for both texts */
+}
+
+/* Green Tick */
+.service-tick {
+    font-size: 1.3rem; /* Tick size */
+    color: #add136; /* Green color */
+    margin-right: 10px;
+    flex-shrink: 0; /* Ensures it doesn’t shrink */
+    line-height: 2.3;
+}
+
+/* Text Container */
+.service-text {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+/* Default & Hover Text */
+.default-text,
+.hover-text {
+    font-size: 0.9rem;
+    line-height: 1.3;
+    width: 100%;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: normal; /* Allow text wrapping */
+}
+
+/* Ensure hover text is visible in multiline */
+.hover-text {
+    opacity: 0;
+    display: block;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+/* Hover Effect */
+.service-item:hover .default-text {
+    opacity: 0; /* Hide default text */
+}
+
+.service-item:hover .hover-text {
+    opacity: 1; /* Show hover text */
+}

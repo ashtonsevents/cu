@@ -1,0 +1,95 @@
+ /* Apply the animation to your h1 element */
+ h1 {
+    animation: fadeInUnblur 1.5s ease-out forwards;
+  }
+  
+
+
+  /* Header styling for top left logo */
+  header {
+    width: 100%;
+    padding: 30px;
+    text-align: left;
+  }
+  
+  .logo {
+    width: 150px;
+    height: auto;
+  }
+  
+  /* Main container: center content vertically and horizontally */
+  main {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 5vh;
+  }
+  
+  /* Heading styling */
+  h1 {
+    font-size: 1.8rem;
+    font-family: "poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #07485b;
+  }
+  
+  h1::first-line {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-family: "poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #07485b;
+  }
+  
+  /* Gradient text styling */
+  .gradient {
+    font-size: 3rem;
+    line-height: 5px;
+    font-weight: 600;
+    background: linear-gradient(270deg, #add136, #0ac1bc, #916bab);
+    background-size: 600% 600%;
+    animation: gradient-animation 5s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  @keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Discover button styling */
+  .discover-button {
+    display: inline-block;
+    color: #0ac1bc;
+    padding: 5px 20px;
+    border: 2px solid #0ac1bc;
+    border-radius: 50px;
+    font-family: "poppins", sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 60px;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 8px rgba(10, 193, 188, 0.3);
+  }
+  
+  .discover-button:hover {
+    transform: scale(1.1);
+    color: #fff;
+    background-color: #0ac1bc;
+    background-size: 600% 600%;
+    animation: gradient-animation 8s ease infinite;
+  }
+
+  
