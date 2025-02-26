@@ -34,7 +34,6 @@ main {
   z-index: 0;
   position: relative; /* This ensures elements inside are positioned relative to main */
   overflow: hidden; /* Prevents circle from going outside */
-  padding: 5vh;
 }
 
 /* Floating circle styling - Now confined inside main */
@@ -65,7 +64,6 @@ main {
     font-weight: 500;
     font-style: normal;
     color: #07485b;
-    padding: 5vh;
   }
   
   h1::first-line {
@@ -79,7 +77,6 @@ main {
     font-weight: 500;
     font-style: normal;
     color: #07485b;
-    padding: 5vh;
   }
   
   /* Gradient text styling */
@@ -125,4 +122,49 @@ main {
     box-shadow: 0 0 8px rgba(10, 102, 99, 0.7);
   }
 
-  
+  /* Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Center the logo on mobile */
+  header {
+      justify-content: center; /* Centers logo */
+      text-align: center;
+  }
+
+  .logo {
+      width: 120px; /* Slightly smaller logo for mobile */
+      margin: 0 auto; /* Centers it properly */
+  }
+
+  /* Adjust main container for better spacing */
+  main {
+      padding: 5vh 5%; /* Adds space around text */
+      height: auto; /* Allow content to define height */
+      
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  /* Increase padding around text */
+  h1 {
+      padding: 0 10px;
+      margin-top: 10vh;
+      font-size: 1.6rem; /* Slightly smaller for better readability */
+  }
+
+  h1::first-line {
+      font-size: 2.5rem; /* Reduce first-line size on mobile */
+  }
+
+  .gradient {
+      font-size: 2.5rem; /* Adjust gradient text size */
+  }
+
+  /* Adjust button for better mobile tapability */
+  .discover-button {
+      font-size: 1rem; /* Slightly smaller */
+      padding: 10px 25px;
+      margin-top: 40px; /* Adjust spacing */
+  }
+}
