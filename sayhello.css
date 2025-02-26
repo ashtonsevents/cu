@@ -65,6 +65,7 @@ main {
     font-weight: 500;
     font-style: normal;
     color: #07485b;
+    padding: 5vh;
   }
   
   h1::first-line {
@@ -78,6 +79,7 @@ main {
     font-weight: 500;
     font-style: normal;
     color: #07485b;
+    padding: 5vh;
   }
   
   /* Gradient text styling */
