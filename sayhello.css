@@ -71,7 +71,7 @@ main {
     font-weight: 600;
   }
 
-  h2 {
+  .mainh2 {
     font-size: 1.8rem;
     font-family: "poppins", sans-serif;
     font-weight: 500;
@@ -125,15 +125,22 @@ main {
   /* Mobile Responsiveness */
 @media (max-width: 768px) {
   /* Center the logo on mobile */
-  header {
-      justify-content: center; /* Centers logo */
-      text-align: center;
-  }
+  @media (max-width: 768px) {
+    header {
+        display: flex;
+        justify-content: center; /* Centers logo horizontally */
+        align-items: center; /* Centers vertically */
+        text-align: center; /* Ensures content aligns */
+        width: 100%;
+        padding: 20px 0; /* Adjust padding for better spacing */
+    }
 
-  .logo {
-      width: 120px; /* Slightly smaller logo for mobile */
-      margin: 0 auto; /* Centers it properly */
-  }
+    .logo {
+        display: block; /* Ensure it's treated as a block element */
+        margin: 0 auto; /* Ensures proper centering */
+        width: 120px; /* Adjust size for mobile */
+    }
+}
 
   /* Adjust main container for better spacing */
   main {
@@ -142,10 +149,11 @@ main {
       
   }
 
-  h2 {
+  .mainh2 {
     font-size: 1.4rem;
     margin-top: 5vh;
     padding: 2vh;
+    color: #07485b;
 
   }
 
@@ -185,13 +193,13 @@ main {
 }
 
 /* Default (Desktop) - Keep Text in One Line */
-h2 span {
+.mainh2 span {
   display: inline; /* Ensures it stays in the same line by default */
 }
 
 /* Mobile: Move "Virtually today" to a New Line */
 @media (max-width: 768px) {
-  h2 span {
+  .mainh2 span {
       display: block; /* Forces "Virtually today" to a new line */
       margin-top: 5px; /* Adds spacing for better readability */
   }
