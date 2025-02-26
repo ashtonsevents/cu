@@ -203,5 +203,10 @@ main {
       display: block; /* Forces "Virtually today" to a new line */
       margin-top: 5px; /* Adds spacing for better readability */
   }
+
+  #floating-circle {
+    opacity: 0; 
+  }
+
 }
 
