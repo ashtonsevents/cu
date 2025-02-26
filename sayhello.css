@@ -34,6 +34,7 @@ main {
   z-index: 0;
   position: relative; /* This ensures elements inside are positioned relative to main */
   overflow: hidden; /* Prevents circle from going outside */
+  padding: 5vh;
 }
 
 /* Floating circle styling - Now confined inside main */
