@@ -1,4 +1,7 @@
 /* Reset some defaults */
+
+
+
 body, h1, h2 {
     margin: 0;
     padding: 0;
@@ -13,6 +16,7 @@ body, h1, h2 {
   body {
     font-family: Arial, sans-serif;
     overflow-x: hidden;
+    background-color: rgb(230, 230, 230);
   }
   
   /* Floating circle styling */
@@ -20,13 +24,16 @@ body, h1, h2 {
     position: fixed;
     width: 600px;          /* Adjust size as needed */
     height: 600px;
-    background: rgba(206, 206, 206, 0.144);  /* Grey with low opacity */
+    background: rgba(230, 230, 230, 0.205);  /* Grey with low opacity */
     border-radius: 50%;
     filter: blur(20px);    /* Soft blurred effect */
     pointer-events: none;  /* Allows clicks to pass through */
     transform: translate(-50%, -50%); /* Centers the circle at the mouse position */
     transition: top 0.1s ease-out, left 0.1s ease-out;
-    z-index: -1;           /* Adjust z-index as needed */
+  }
+
+  #floating-circle main {
+    overflow: hidden;
   }
   
   @keyframes fadeInUnblur {
@@ -41,82 +48,6 @@ body, h1, h2 {
   }
   
  
-  
-  /* Profiles Section */
-  .profiles-section {
-    padding: 50vh 0;
-    background-color: #f7f7f7;
-    text-align: center;
-    height: 60vh;
-  }
-  
-  .profiles-section h2 {
-    padding-top: 80px;
-    font-family: "poppins", sans-serif;
-    font-size: 2rem;
-    color: #07485b;
-    font-weight: 400;
-    margin-bottom: 30px;
-  }
-
-  .profiles-section h3 {
-    margin: 0;
-    font-family: "poppins", sans-serif;
-    font-size: 1.6rem;
-    color: #07485b;
-    font-weight: 400;
-  }
-
-  
-  /* Profiles Grid */
-  .profiles-grid {
-    padding-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 10px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  /* Individual Profile Card */
-  .profile {
-    background: transparent;
-    padding: 20px;
-  }
-  
-  /* Profile Photo */
-  .profile-photo {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-  }
-  
-  /* Profile Information */
-
-  .profile-info p {
-    padding-top: 0px;
-    font-weight: 600;
-    color: #07485b;
-    font-size: 1rem;
-    margin: 0;
-    font-family: "poppins", sans-serif;
-  }
-  .profile-info a {
-    font-weight: 500;
-    color: #07485b;
-    text-decoration: none;
-    transition: color 0.3s ease, text-decoration-color 0.3s ease;
-  }
-  
-  .profile-info a:hover {
-    color:#0ac1bc;
-    text-decoration: underline;
-    text-decoration-color: #0ac1bc; /* or use 'inherit' */
-  }
-  
  /* Scroll Indicator container */
  .scroll-indicator {
     margin-top: 50px;
@@ -176,61 +107,5 @@ body, h1, h2 {
   }
   .linkedin-logo:hover {
     transform: scale(1.1);
-  }
-
-  /*VIDEO SECTION*/
-
-  .videos-section {
-    padding: 20px 20px;
-    background-color: #f7f7f7;
-    text-align: center;
-    
-  }
-  .videos-section h2 {
-    padding-top: 20px;
-    font-family: "poppins", sans-serif;
-    font-size: 2rem;
-    color: #07485b;
-    font-weight: 400;
-    margin-bottom: 30px;
-    margin-top: 5vh;
-  }
-
-  @media (max-width: 480px) {
-    .videos-section h2 {
-        margin-top: 40vh; 
-    }
-}
-  
-  
-  .main-video iframe {
-    margin-top: 20px;
-    border-radius: 15px; /* Adjust the value as needed */
-  }
-
-  .video-gallery {
-    max-width: 640px; /* adjust as needed */
-    margin: 0 auto;
-  }
-  
-  .main-video {
-    margin-bottom: 0px;
-  }
-  
-  /* Using flexbox to lay out the four thumbnails in a row */
-  .video-thumbnails {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: -25px;
-    justify-content: space-between;
-    
-  }
-  
-  .video-thumbnails iframe {
-    flex: 1;
-    max-width: calc(25% - 10px);
-    border-radius: 10px; /* Adjust the value as needed */
-    overflow: hidden; /* Ensures the rounded corners are properly applied */
   }
 

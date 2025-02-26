@@ -1,0 +1,137 @@
+/* Profiles Section */
+.profiles-section {
+    text-align: center;
+    margin: 2vh;
+    margin-top: 6vh;
+    padding-bottom: 10vh; /* Reduced padding to fit mobile screens */
+    padding-top: 0;
+    border-radius: 5vh;
+    background-color: white;
+    min-height: auto; /* Ensures it expands naturally */
+}
+
+/* Headings */
+.profiles-section h2 {
+    padding-top: 50px;
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    color: #07485b;
+    font-weight: 400;
+    margin-bottom: 20px;
+} 
+
+.profiles-section h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.4rem; /* Adjusted for smaller screens */
+    color: #07485b;
+    font-weight: 400;
+}
+
+/* Profiles Grid */
+.profiles-grid {
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Individual Profile Card */
+.profile {
+    background: transparent;
+    padding: 20px;
+}
+
+/* Profile Photo */
+.profile-photo {
+    width: 150px; /* Adjusted for better scaling */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+/* Profile Information */
+.profile-info p {
+    font-weight: 600;
+    color: #07485b;
+    font-size: 0.95rem;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.profile-info a {
+    font-weight: 500;
+    color: #07485b;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.profile-info a:hover {
+    color:#0ac1bc;
+    text-decoration: underline;
+    text-decoration-color: #0ac1bc;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    margin-top: 30px;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .profiles-section {
+        padding-bottom: 8vh;
+    }
+
+    .profiles-section h2 {
+        font-size: 1.8rem;
+        padding-top: 30px;
+    }
+
+    .profiles-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .profiles-grid {
+        grid-template-columns: 1fr; /* Stacks profiles vertically */
+        gap: 30px;
+    }
+
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-info p {
+        font-size: 0.9rem; /* Slightly smaller text for mobile */
+    }
+}
+
+/* SMALLER MOBILE SCREENS (Phones < 480px) */
+@media (max-width: 480px) {
+    .profiles-section {
+        padding-bottom: 6vh;
+    }
+
+    .profiles-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+    .profiles-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-info p {
+        font-size: 0.85rem;
+    }
+}

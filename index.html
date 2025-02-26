@@ -8,16 +8,20 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="services.css">
   <link rel="stylesheet" href="sayhello.css">
+  <link rel="stylesheet" href="videos.css">
+  <link rel="stylesheet" href="team.css">
   <!-- Load script.js with defer so DOM is ready -->
   <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
-    <!-- Top left logo -->
-    <img src="assets/Ashtons_Logo_1.1_blue_RGB.png" alt="Top Logo" class="logo">
-  </header>
+  
   <main>
-    <div id="floating-circle"></div>
+    <header>
+      <!-- Top left logo -->
+      <div id="floating-circle"></div>
+      <img src="assets/Ashtons_Logo_1.1_blue_RGB.png" alt="Top Logo" class="logo">
+    </header>
+    
     <h1>
       Say hello to the <span class="gradient">Virtual Hub</span></h1>
     <h2>Empowering tomorrow, Virtually today</h2>
@@ -25,47 +29,58 @@
     <a href="#" class="discover-button">Discover</a>
   </main>
   
-  <!-- Profiles Section -->
-  <section id="profiles" class="profiles-section">
-    <h2>Meet Our Team</h2>
-    <div class="profiles-grid">
+<!-- Profiles Section -->
+<section id="profiles" class="profiles-section">
+
+  <h2>Meet Our Team</h2>
+  <div class="profiles-grid">
       <!-- Profile 1 -->
       <div class="profile">
-        <img src="assets/Mo_Arif_09-05-24_034hi_res_Print.jpg" alt="Mo Arif" class="profile-photo">
-        <div class="profile-info">
-          <h3>Mo Arif</h3>
-          <p>Business Development Director</p>
-          <p><a href="mailto:moarif@ashtons.com">moarif@ashtons.com</a></p>
-          <p><a href="tel:07875407085">07875 407 085</a></p>
-          <p>
-            <a target="_blank" href="https://www.linkedin.com/in/mo-farhan-arif-565938113/">
-              <img src="assets/174857.png" alt="LinkedIn" class="linkedin-logo">
-            </a>
-          </p>
-        </div>
-      </div>
-      
+          <img src="assets/Mo_Arif_09-05-24_034hi_res_Print.jpg" alt="Mo Arif" class="profile-photo">
+          <div class="profile-info">
+              <h3>Mo Arif</h3>
+              <p>Business Development Director</p>
+              <p><a href="mailto:moarif@ashtons.com">moarif@ashtons.com</a></p>
+              <p><a href="tel:07875407085">07875 407 085</a></p>
+              <p>
+                  <a target="_blank" href="https://www.linkedin.com/in/mo-farhan-arif-565938113/">
+                      <img src="assets/174857.png" alt="LinkedIn" class="linkedin-logo">
+                  </a>
+              </p>
+          </div>
+      </div> <!-- ❗️Missing closing div was here -->
+
       <!-- Profile 2 -->
       <div class="profile">
-        <img src="assets/nicola.jpg" alt="Nicola Vickers" class="profile-photo">
-        <div class="profile-info">
-          <h3>Nicola Vickers</h3>
-          <p>Business Development Manager</p>
-          <p><a href="mailto:nicolavickers@ashtons.com">nicolavickers@ashtons.com</a></p>
-          <p><a href="tel:07801297643">07801 297 643</a></p>
-          <p>
-            <a target="_blank" href="https://www.linkedin.com/in/nicola-vickers/">
-              <img src="assets/174857.png" alt="LinkedIn" class="linkedin-logo">
-            </a>
-          </p>
-        </div>
+          <img src="assets/nicola.jpg" alt="Nicola Vickers" class="profile-photo">
+          <div class="profile-info">
+              <h3>Nicola Vickers</h3>
+              <p>Business Development Manager</p>
+              <p><a href="mailto:nicolavickers@ashtons.com">nicolavickers@ashtons.com</a></p>
+              <p><a href="tel:07801297643">07801 297 643</a></p>
+              <p>
+                  <a target="_blank" href="https://www.linkedin.com/in/nicola-vickers/">
+                      <img src="assets/174857.png" alt="LinkedIn" class="linkedin-logo">
+                  </a>
+              </p>
+          </div>
       </div>
-    </div>
-    <div class="scroll-indicator">
-        <a href="#" class="find-out-more-button"><span>Find out more</span><br>
-        <div class="arrow"></div></a>
-      </div>
-    </section>
+
+  </div> <!-- ❗️This closes the profiles-grid -->
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+      <a href="#" class="find-out-more-button">
+          <span>Find out more</span><br>
+          <div class="arrow"></div>
+      </a>
+  </div>
+
+</section>
+
+
+
+    
       <section id="videos" class="videos-section">
         
         <h2>What is the Virtual Hub?</h2>
@@ -83,43 +98,102 @@
               <iframe src="https://player.vimeo.com/video/1001534366" width="320" height="180" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
-
-
-        
-
-          
     
   </section>
 
   <section id="services" class="services-section">
     <h2>Our Services</h2>
+    <p class="tap-hint">
     <div class="services-grid">
         <!-- Service 1 -->
         <div class="service-item">
-            <span class="service-tick">✔</span>
             <div class="service-text">
                 <p class="default-text">Clinical Reviews</p>
-                <p class="hover-text">Support with outcome-driven<br> medication reviews for specific<br> patient cohorts</p>
+                <p class="hover-text">Providing routine and structured medication reviews focused on outcome-based improvement for specific patient cohort</p>
             </div>
         </div>
         <!-- Service 2 -->
         <div class="service-item">
-            <span class="service-tick">✔</span>
             <div class="service-text">
-                <p class="default-text">Training & Education</p>
-                <p class="hover-text">Providing healthcare professionals<br> with essential training</p>
+                <p class="default-text">Prescription management</p>
+                <p class="hover-text">Reviewing and processing all medication requests and queries to streamline efficiency and avoid bottlenecks.</p>
             </div>
         </div>
         <!-- Service 3 -->
         <div class="service-item">
-            <span class="service-tick">✔</span>
             <div class="service-text">
-                <p class="default-text">Regulatory Support</p>
-                <p class="hover-text">Helping organizations meet healthcare<br> compliance standards</p>
+                <p class="default-text">Document processing</p>
+                <p class="hover-text">Review and process incoming documents to identify, code and action based on practice and PCN specificity.</p>
             </div>
         </div>
+        <!-- Service 4 -->
+        <div class="service-item">
+          <div class="service-text">
+              <p class="default-text">Long-term condition management</p>
+              <p class="hover-text">Chronic disease management of high-priority patient cohorts to improve compliance, monitoring and outcomes.</p>
+          </div>
+      </div>
+      <!-- Service 5 -->
+      <div class="service-item">
+        <div class="service-text">
+            <p class="default-text">Clinical audits</p>
+            <p class="hover-text">Conducting comprehensive reviews to aid compliance and support patient risk stratification, to improve best practice.</p>
+        </div>
+    </div>
+    <!-- Service 6 -->
+    <div class="service-item">
+      <div class="service-text">
+          <p class="default-text">Medicines management reporting</p>
+          <p class="hover-text">Supporting dedicated workstreams around holistic medicines management needs for Primary Care.</p>
+      </div>
+  </div>
+  <!-- Service 7 -->
+  <div class="service-item">
+    <div class="service-text">
+        <p class="default-text">Appointment booking</p>
+        <p class="hover-text">Reviewing and processing all medication requests and queries to streamline efficiency and avoid bottlenecks.</p>
+    </div>
+</div>
+<!-- Service 8 -->
+<div class="service-item">
+  <div class="service-text">
+      <p class="default-text">Extended access</p>
+      <p class="hover-text">Providing services outside of core working hours, supporting practices and PCNs with development plans.</p>
+  </div>
+</div>
+<!-- Service 9 -->
+<div class="service-item">
+  <div class="service-text">
+      <p class="default-text">Prescribing clinics</p>
+      <p class="hover-text">Dedicated end-to-end sessions focused on diverting resources to maximise capacity.</p>
+  </div>
+</div>
+<!-- Service 10 -->
+<div class="service-item">
+  <div class="service-text">
+      <p class="default-text">Contract indicators (national and local)</p>
+      <p class="hover-text">Addressing compliance and performance against specific national and local targets and indicators.</p>
+  </div>
+</div>
+<!-- Service 11 -->
+<div class="service-item">
+  <div class="service-text">
+      <p class="default-text">
+        Medicines reconciliation</p>
+      <p class="hover-text">Ensuring up-to-date records to prevent medication errors like omissions, duplications, dosing mistakes, and drug interactions.</p>
+  </div>
+</div>
+<!-- Service 12 -->
+<div class="service-item">
+  <div class="service-text">
+      <p class="default-text">Deprescribing</p>
+      <p class="hover-text">An end-to-end holistic review of patient prescribing needs based on various national and local indicators.</p>
+  </div>
+</div>
     </div>
 </section>
+
+
 
 
 

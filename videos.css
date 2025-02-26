@@ -1,0 +1,100 @@
+/* VIDEO SECTION */
+.videos-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: white;
+    border-radius: 5vh 5vh 0 0;
+    margin: 2vh;
+    margin-bottom: 0;
+    margin-top: 6vh;
+}
+
+/* Heading */
+.videos-section h2 {
+    padding-top: 20px;
+    font-family: "poppins", sans-serif;
+    font-size: 2rem;
+    color: #07485b;
+    font-weight: 400;
+    margin-bottom: 30px;
+    
+}
+
+/* Main Video */
+.main-video {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-video iframe {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Ensures responsive scaling */
+    border-radius: 15px;
+}
+
+/* Video Gallery (Thumbnails) */
+.video-gallery {
+    max-width: 900px; /* Adjust as needed */
+    margin: 0 auto;
+}
+
+.video-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Default: 4 Columns */
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+/* Thumbnails */
+.video-thumbnails iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* 📱 MOBILE RESPONSIVENESS */
+@media (max-width: 1024px) {
+    .video-thumbnails {
+        grid-template-columns: repeat(2, 1fr); /* 2 Columns on Tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .videos-section {
+        padding: 30px 15px; /* Reduce padding */
+    }
+
+    .videos-section h2 {
+        font-size: 1.8rem; /* Slightly smaller heading */
+    }
+
+    .main-video iframe {
+        width: 90%; /* Make main video slightly smaller */
+    }
+
+    .video-thumbnails {
+        grid-template-columns: repeat(2, 1fr); /* 2 Columns on Small Tablets */
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .videos-section h2 {
+        font-size: 1.6rem;
+        margin-top: 5vh; /* Adjust spacing */
+    }
+
+    .main-video iframe {
+        width: 95%;
+    }
+
+    .video-thumbnails {
+        grid-template-columns: repeat(1, 1fr); /* 1 Column on Mobile */
+        gap: 5px;
+    }
+}
