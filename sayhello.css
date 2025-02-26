@@ -145,6 +145,7 @@ main {
   h2 {
     font-size: 1.4rem;
     margin-top: 5vh;
+    padding: 2vh;
 
   }
 
@@ -170,7 +171,7 @@ main {
   h1 .gradient {
       display: block; /* Moves "Virtual Hub" to a new line */
       font-size: 2.5rem; /* Adjust size for mobile readability */
-      line-height: 4vh;
+      line-height: 5vh;
   }
 
 }
@@ -180,6 +181,19 @@ main {
       font-size: 1rem; /* Slightly smaller */
       padding: 10px 25px;
       margin-top: 40px; /* Adjust spacing */
+  }
+}
+
+/* Default (Desktop) - Keep Text in One Line */
+h2 span {
+  display: inline; /* Ensures it stays in the same line by default */
+}
+
+/* Mobile: Move "Virtually today" to a New Line */
+@media (max-width: 768px) {
+  h2 span {
+      display: block; /* Forces "Virtually today" to a new line */
+      margin-top: 5px; /* Adds spacing for better readability */
   }
 }
 
