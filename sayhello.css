@@ -156,6 +156,7 @@ main {
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-top: 5vh;
   }
 
   /* Wrap "Say hello to THE" in a span and set it to block */
