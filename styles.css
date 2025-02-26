@@ -30,7 +30,7 @@ body, h1, h2 {
     pointer-events: none;  /* Allows clicks to pass through */
     transform: translate(-50%, -50%); /* Centers the circle at the mouse position */
     transition: top 0.1s ease-out, left 0.1s ease-out;
-    z-index: -1;
+    z-index: -9999;
   }
 
   #floating-circle main {

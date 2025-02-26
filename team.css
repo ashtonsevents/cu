@@ -43,6 +43,7 @@
 .profile {
     background: transparent;
     padding: 20px;
+    z-index: 0;
 }
 
 /* Profile Photo */
