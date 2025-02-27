@@ -36,7 +36,275 @@ main {
   overflow: hidden; /* Prevents circle from going outside */
 }
 
+@keyframes float {
+  0% {
+      transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+  25% {
+      transform: translate(-50%, -50%) translateX(-10px) translateY(-10px); /* Moves slightly left & up */
+  }
+  50% {
+      transform: translate(-50%, -50%) translateX(10px) translateY(10px); /* Moves slightly right & down */
+  }
+  75% {
+      transform: translate(-50%, -50%) translateX(-10px) translateY(10px); /* Moves left & down */
+  }
+  100% {
+      transform: translate(-50%, -50%) translateX(0) translateY(0); /* Returns to center */
+  }
+}
+
+#image-circle1 {
+  position: absolute;
+  width: 300px; /* Adjust size as needed */
+  height: 300px;
+  top: 30%;
+  left: 86%; /* Move it further to the left */
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-image: url('assets/iStock-1207116358.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  animation: float 10s ease-in-out infinite;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Optional shadow for a soft effect */
+  z-index: -1;
+  opacity: 75%;
+
+  /* Blurred edges effect */
+  mask-image: radial-gradient(circle, 
+      rgba(0, 0, 0, 1) 30%,  
+      rgba(0, 0, 0, 0.5) 55%,  
+      rgba(0, 0, 0, 0.1) 75%,  
+      rgba(0, 0, 0, 0) 90%);
+  -webkit-mask-image: radial-gradient(circle, 
+      rgba(0, 0, 0, 1) 30%,  
+      rgba(0, 0, 0, 0.5) 55%,  
+      rgba(0, 0, 0, 0.1) 75%,  
+      rgba(0, 0, 0, 0) 90%);
+}
+
+
+@keyframes float2 {
+  0% {
+      transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+  25% {
+      transform: translate(-50%, -50%) translateX(15px) translateY(-15px); /* Moves differently than #image-circle1 */
+  }
+  50% {
+      transform: translate(-50%, -50%) translateX(-15px) translateY(15px);
+  }
+  75% {
+      transform: translate(-50%, -50%) translateX(10px) translateY(-10px);
+  }
+  100% {
+      transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+}
+
+#image-circle2 {
+  position: absolute;
+  width: 350px; /* Slightly bigger than #image-circle1 */
+  height: 350px;
+  top: 70%; /* Move it slightly to a different position */
+  left: 16%; /* Further to the right */
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-image: url('assets/iStock-1752039684.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  animation: float2 12s ease-in-out infinite alternate; /* Different speed & movement */
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+  z-index: -1;
+  opacity: 80%;
+
+  /* Blurred edges effect */
+  mask-image: radial-gradient(circle, 
+      rgba(0, 0, 0, 1) 30%,  
+      rgba(0, 0, 0, 0.5) 55%,  
+      rgba(0, 0, 0, 0.1) 75%,  
+      rgba(0, 0, 0, 0) 90%);
+  -webkit-mask-image: radial-gradient(circle, 
+      rgba(0, 0, 0, 1) 30%,  
+      rgba(0, 0, 0, 0.5) 55%,  
+      rgba(0, 0, 0, 0.1) 75%,  
+      rgba(0, 0, 0, 0) 90%);
+}
+
+@keyframes float3 {
+  0% {
+      transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+  25% {
+      transform: translate(-50%, -50%) translateX(-20px) translateY(10px);
+  }
+  50% {
+      transform: translate(-50%, -50%) translateX(15px) translateY(-20px);
+  }
+  75% {
+      transform: translate(-50%, -50%) translateX(-10px) translateY(15px);
+  }
+  100% {
+      transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+}
+
+#grey-circle1 {
+  position: absolute;
+  width: 600px; /* Larger to simulate depth */
+  height: 600px;
+  top: 0%; /* Background placement */
+  left: 20%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: rgba(200, 200, 200, 0.527); /* Subtle grey tone */
+  animation: float3 15s ease-in-out infinite alternate; /* Moves even slower */
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1); /* More diffusion */
+  z-index: -2; /* Push it further into the background */
+  opacity: 50%;
+
+  /* Stronger blur effect */
+  filter: blur(0px);
+}
+
+@keyframes float4 {
+  0% {
+      transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+  25% {
+      transform: translate(-50%, -50%) translateX(10px) translateY(-15px);
+  }
+  50% {
+      transform: translate(-50%, -50%) translateX(-20px) translateY(20px);
+  }
+  75% {
+      transform: translate(-50%, -50%) translateX(15px) translateY(-10px);
+  }
+  100% {
+      transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+}
+
+#grey-circle2 {
+  position: absolute;
+  width: 400px; /* Slightly smaller for depth variation */
+  height: 400px;
+  top: 40%; /* Different positioning */
+  left: 60%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: rgba(180, 180, 180, 0.25); /* Slightly different grey */
+  animation: float4 18s ease-in-out infinite alternate; /* Different speed */
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.08); /* Softer diffusion */
+  z-index: -3; /* Even further in the background */
+  opacity: 40%;
+
+  /* More subtle blur than grey-circle1 */
+  filter: blur(20px);
+}
+
+
+
 /* Floating circle styling - Now confined inside main */
+
+@keyframes float5 {
+  0% {
+      transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+  25% {
+      transform: translate(-50%, -50%) translateX(-10px) translateY(10px);
+  }
+  50% {
+      transform: translate(-50%, -50%) translateX(20px) translateY(-15px);
+  }
+  75% {
+      transform: translate(-50%, -50%) translateX(-15px) translateY(5px);
+  }
+  100% {
+      transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+}
+
+#grey-circle3 {
+  position: absolute;
+  width: 700px; /* Smallest for depth contrast */
+  height: 700px;
+  top: 110%; /* Positioned in bottom-right */
+  left: 80%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: rgba(117, 116, 116, 0.097); /* Slightly lighter grey */
+  animation: float5 20s ease-in-out infinite alternate; /* Slowest and different */
+  box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.05); /* Even softer */
+  z-index: -4; /* Furthest back */
+  opacity: 35%;
+
+  /* Subtle blur to keep the depth effect */
+  filter: blur(5px);
+}
+
+/* Default Sizes (for larger screens) */
+#image-circle1, #image-circle2, #grey-circle1, #grey-circle2, #grey-circle3 {
+  transition: all 0.5s ease-in-out; /* Smooth resizing */
+}
+
+/* Tablets (below 768px) */
+@media (max-width: 768px) {
+  #image-circle1 {
+    width: 200px;
+    height: 200px;
+    top: 15%;
+  }
+  #image-circle2 {
+    width: 250px;
+    height: 250px;
+    top: 90%;
+  }
+  #grey-circle1 {
+    width: 350px;
+    height: 350px;
+    filter: blur(20px);
+  }
+  #grey-circle2 {
+    width: 300px;
+    height: 300px;
+    filter: blur(15px);
+  }
+  #grey-circle3 {
+    width: 200px;
+    height: 200px;
+    filter: blur(10px);
+  }
+}
+
+/* Mobile (below 480px) */
+@media (max-width: 510x) {
+  #image-circle1 {
+    width: 150px;
+    height: 150px;
+    top: 15%;
+  }
+  #image-circle2 {
+    width: 180px;
+    height: 180px;
+    top: 90%;
+  }
+  #grey-circle1 {
+    width: 250px;
+    height: 250px;
+    filter: blur(15px);
+  }
+  #grey-circle2 {
+    width: 200px;
+    height: 200px;
+    filter: blur(12px);
+  }
+  #grey-circle3 {
+    width: 150px;
+    height: 150px;
+    filter: blur(8px);
+  }
+}
 
 
   
