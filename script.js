@@ -10,7 +10,7 @@ document.addEventListener('mousemove', function(e) {
   document.querySelector('.find-out-more-button').addEventListener('click', function(e) {
     e.preventDefault();
     const target = document.querySelector('.main-video');
-    const offsetAdjustment = 150; // Number of pixels to adjust the scroll position
+    const offsetAdjustment = 390; // Number of pixels to adjust the scroll position
     const offset = target.getBoundingClientRect().top + window.pageYOffset - offsetAdjustment;
     window.scrollTo({
       top: offset,
