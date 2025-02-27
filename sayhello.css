@@ -251,13 +251,13 @@ main {
 /* Tablets (below 768px) */
 @media (max-width: 768px) {
   #image-circle1 {
-    width: 200px;
-    height: 200px;
-    top: 15%;
+    width: 170px;
+    height: 170px;
+    top: 8%;
   }
   #image-circle2 {
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
     top: 90%;
   }
   #grey-circle1 {
@@ -280,14 +280,14 @@ main {
 /* Mobile (below 480px) */
 @media (max-width: 510x) {
   #image-circle1 {
-    width: 150px;
-    height: 150px;
-    top: 15%;
+    width: 100px;
+    height: 100px;
+    top: 7%;
   }
   #image-circle2 {
-    width: 180px;
-    height: 180px;
-    top: 90%;
+    width: 150px;
+    height: 150px;
+    top: 93%;
   }
   #grey-circle1 {
     width: 250px;
