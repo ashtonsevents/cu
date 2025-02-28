@@ -6,17 +6,69 @@
 
 
   /* Header styling for top left logo */
-  header {
-    width: 80%;
-    padding: 30px;
-    text-align: left;
-  }
-  
+
+  /* Header Styles */
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background: transparent; /* Keeps it clean */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+/* Center Navigation */
+nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Logo Styling */
+.logo {
+  height: 50px; /* Adjust as needed */
+}
+
+/* Navigation Menu */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 50px; /* Space between links */
+  margin: 0;
+  font-family: "poppins", sans-serif;
+  padding: 0;
+}
+
+/* Menu Links */
+.nav-menu li a {
+  text-decoration: none;
+  color: lightgrey; /* Default color */
+  font-size: 16px;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-menu li a:hover {
+  color: #00bcd4; /* Cyan hover effect */
+}
+
+
   .logo {
     width: 150px;
     height: auto;
     margin-top: 1.5vh;
     z-index: 2;
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu {
+      display: none;
+    }
   }
   
   /* Main container: center content vertically and horizontally */
