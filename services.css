@@ -17,25 +17,33 @@
     margin-bottom: 15px;
 }
 
-/* Centered Grid with Responsive Columns */
+/* Default: 3-column grid */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columns default */
     gap: 20px;
-    max-width: 900px; /* Center the grid */
+    max-width: 900px;
     margin: 0 auto;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 900px) {  /* Tablet View */
+@media (max-width: 600px) {
     .services-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 1 */
+        gap: 10px; /* Slightly smaller gap for better spacing */
     }
-}
+    
+    .service-item {
+        height: 140px; /* Make it more square */
+        padding: 15px; /* Adjust padding for better spacing */
+    }
+    
+    .default-text, .hover-text {
+        width: 95%;
+    }
 
-@media (max-width: 600px) {  /* Mobile View */
-    .services-grid {
-        grid-template-columns: repeat(1, 1fr); /* 1 column */
+    /* Ensure hover-text stays smaller */
+    .hover-text, .service-item:hover .hover-text {
+        font-size: 0.7rem !important; /* Force size */
     }
 }
 
