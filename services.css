@@ -43,7 +43,7 @@
 
     /* Ensure hover-text stays smaller */
     .hover-text, .service-item:hover .hover-text {
-        font-size: 0.7rem !important; /* Force size */
+        font-size: 0.8rem !important; /* Force size */
     }
 }
 
