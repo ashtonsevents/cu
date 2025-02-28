@@ -1,0 +1,38 @@
+/* Services Section */
+.podcasts-section {
+    text-align: center;
+    margin: 2vh;
+    margin-top: 6vh;
+    padding-bottom: 10vh; /* Reduced padding to fit mobile screens */
+    padding-top: 0;
+    border-radius: 5vh;
+    background-color: white;
+    min-height: auto; /* Ensures it expands naturally */
+}
+
+/* Section Heading */
+.podcasts-section h2 {
+    padding-top: 20px;
+    font-family: "poppins", sans-serif;
+    font-size: 2rem;
+    color: #07485b;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+/* Main Video */
+.podcast-video {
+    margin-bottom: 20px;
+    display: flex;
+    z-index: 0;
+    justify-content: center;
+}
+
+.podcast-video iframe {
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Ensures responsive scaling */
+    border-radius: 15px;
+    z-index: 0;
+}
