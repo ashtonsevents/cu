@@ -26,12 +26,9 @@
     
     .service-item {
         height: 140px; /* Make it more square */
-        padding: 10px; /* Adjust padding for better spacing */
+        padding: 20px; /* Adjust padding for better spacing */
     }
     
-    .hover-text {
-        width: 130%;
-    }
     
     .default-text, .hover-text {
         width: 100%;
