@@ -58,7 +58,7 @@
     color: #07485b;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     position: relative;
-    padding: 20px;
+    padding: 40px;
     height: 120px; /* Adjust as needed */
     border-radius: 20px;
     background-color: #95cdcb2b;
