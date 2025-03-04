@@ -1,17 +1,16 @@
 .videos-section p {
-    max-width: 50%;
     font-family: "poppins", sans-serif;
-    text-align: center;
+    text-align: left;
     margin: 0 auto;
     display: block;
     color: #07485b;
     margin-bottom: 5vh;
-    padding: 15px;
 }
 
 /* VIDEO SECTION */
 .videos-section {
-    padding: 40px 20px;
+    padding: 10px 40px;
+    padding-bottom: 20px;
     text-align: center;
     background-color: white;
     border-radius: 5vh 5vh 0 0;
@@ -21,6 +20,17 @@
     
 }
 
+.videos-section .gradient {
+    font-size: 2rem;
+    line-height: 5px;
+    font-weight: 600;
+    background: linear-gradient(270deg, #add136, #0ac1bc, #916bab);
+    background-size: 600% 600%;
+    animation: gradient-animation 5s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
 /* Heading */
 .videos-section h2 {
     padding-top: 20px;
@@ -29,103 +39,107 @@
     color: #07485b;
     font-weight: 400;
     margin-bottom: 30px;
+    margin-top: 80px;
     
 }
 
-/* Main Video */
-.main-video {
-    margin-bottom: 20px;
+.services-text h2 {
+    padding-top: 20px;
+    font-family: "poppins", sans-serif;
+    font-size: 2rem;
+    color: #07485b;
+    font-weight: 400;
+    margin-bottom: 30px;
+    
+}
+/* Make the section a flex container */
+.video-gallery {
     display: flex;
-    z-index: 0;
+    flex-wrap: wrap;
+    align-items: center; /* Align content vertically */
+    justify-content: space-between; /* Creates spacing */
+    max-width: 1500px;
+    margin: 0 auto;
+    gap: 40px; /* Space between text & videos */
+}
+
+/* Style the text container */
+.video-text {
+    flex: 1; /* Allows text to take up available space */
+    max-width: 45%; /* Prevents text from getting too wide */
+    text-align: left; /* Aligns text to the left */
+}
+
+/* Ensure videos take up proper space */
+.video-content {
+    flex: 1;
+    max-width: 50%;
+}
+
+/* Adjust main video */
+.main-video {
+    display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .main-video iframe {
-    width: 80%;
-    max-width: 800px;
-    height: auto;
-    aspect-ratio: 16 / 9; /* Ensures responsive scaling */
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
     border-radius: 15px;
-    z-index: 0;
 }
 
-/* Video Gallery (Thumbnails) */
-.video-gallery {
-    max-width: 900px; /* Adjust as needed */
-    margin: 0 auto;
+.video-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 2 videos per row */
+    gap: 10px;
+    justify-content: center; /* Centers the grid itself */
+    align-items: center; /* Aligns videos vertically */
+    margin: 0 auto; /* Ensures it remains centered */
+    max-width: 600px; /* Adjust width to match the main video */
 }
 
 .video-thumbnails iframe {
     width: 100%;
     aspect-ratio: 16 / 9;
-    border-radius: 15px; /* Apply rounded corners */
-    overflow: hidden;
-    display: block; /* Ensure proper rendering */
-}
-
-/* Force iframe to clip to border-radius */
-.video-thumbnails {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.video-thumbnails iframe {
-    width: 100%;
-    border: none;
     border-radius: 15px;
     overflow: hidden;
-    clip-path: inset(0 round 15px); /* Ensures the corners are properly rounded */
+    display: block;
 }
 
-
-/* 📱 MOBILE RESPONSIVENESS */
+/* 📱 Mobile Responsiveness */
 @media (max-width: 1024px) {
+    .video-gallery {
+        flex-direction: column; /* Stack text above videos */
+        text-align: center;
+        gap: 20px;
+    }
+
+    .video-gallery p {
+        text-align: center;
+    }
+
+    .video-text {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .video-content {
+        max-width: 100%;
+    }
+
     .video-thumbnails {
-        grid-template-columns: repeat(2, 1fr); /* 2 Columns on Tablets */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .videos-section {
-        padding: 30px 15px; /* Reduce padding */
-    }
-
-    .videos-section p {
-        max-width: 90%;
-    }
-
-    .videos-section h2 {
-        font-size: 1.8rem; /* Slightly smaller heading */
-    }
-
-    .main-video iframe {
-        width: 90%; /* Make main video slightly smaller */
-    }
-
     .video-thumbnails {
-        grid-template-columns: repeat(2, 1fr); /* 2 Columns on Small Tablets */
-        gap: 8px;
-    }
-}
-
-@media (max-width: 480px) {
-    .videos-section h2 {
-        font-size: 1.6rem;
-        margin-top: 5vh; /* Adjust spacing */
+        grid-template-columns: repeat(1, 1fr); /* 1 video per row on small screens */
     }
 
-    .main-video iframe {
-        width: 95%;
+    h2 {
+        display: block;
     }
-
-    .video-thumbnails {
-        grid-template-columns: repeat(1, 1fr); /* 1 Column on Mobile */
-        gap: 5px;
-    }
-}
-
-.videos-section p { 
-    margin-bottom: 5vh;
 }

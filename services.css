@@ -1,28 +1,20 @@
 /* Services Section */
 .services-section {
-    text-align: center;
-    padding: 40px 20px;
-    text-align: center;
+    text-align: left;
+    padding: 0px 20px;
+    padding-bottom: 40px;
     background-color: white;
     border-radius: 0 0 5vh 5vh;
     margin: 0 2vh;
 }
 
-/* Section Heading */
-.services-section h2 {
-    font-family: "poppins", sans-serif;
-    font-size: 1.8rem;
-    color: #07485b;
-    font-weight: 400;
-    margin-bottom: 15px;
-}
 
 /* Default: 3-column grid */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns default */
+    grid-template-columns: repeat(4, 1fr); /* 3 columns default */
     gap: 20px;
-    max-width: 900px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 
@@ -38,13 +30,18 @@
     }
     
     .default-text, .hover-text {
-        width: 95%;
+        width: 100%;
     }
 
     /* Ensure hover-text stays smaller */
     .hover-text, .service-item:hover .hover-text {
         font-size: 0.8rem !important; /* Force size */
     }
+}
+
+@media (max-width: 1000px) {
+    .hover-text, .service-item:hover .hover-text {
+        font-size: 0.8rem !important; /* Force size */ }
 }
 
 /* Service Items */
